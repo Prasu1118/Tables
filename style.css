@@ -1,0 +1,579 @@
+/* ===================== ADVANCED TIMETABLE TABLE CSS ===================== */
+
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ===== CSS CUSTOM PROPERTIES ===== */
+:root {
+  /* Colors */
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+  --success: #10b981;
+  --warning: #f59e0b;
+
+  /* Gradients */
+  --gradient-header: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  --gradient-row: linear-gradient(90deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.05));
+  --gradient-special: linear-gradient(135deg, #8b5cf6, #06b6d4);
+
+  /* Background */
+  --bg-main: linear-gradient(135deg, #f8fafc, #eef2ff, #fef3c7);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Animation */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", "Poppins", sans-serif;
+  background: var(--bg-main);
+  background-size: 400% 400%;
+  animation: backgroundShift 20s ease infinite;
+  min-height: 100vh;
+  padding: var(--space-xl);
+  color: #222;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes backgroundShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ===== ANIMATED BACKGROUND PATTERN ===== */
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pattern-square {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 3px solid rgba(37, 99, 235, 0.1);
+  border-radius: 20px;
+  animation: float-pattern 15s ease-in-out infinite;
+}
+
+.pattern-square:nth-child(1) {
+  top: 10%;
+  left: 5%;
+  animation-duration: 12s;
+}
+
+.pattern-square:nth-child(2) {
+  top: 60%;
+  right: 10%;
+  animation-duration: 16s;
+  animation-delay: 2s;
+}
+
+.pattern-square:nth-child(3) {
+  bottom: 15%;
+  left: 30%;
+  animation-duration: 14s;
+  animation-delay: 4s;
+}
+
+.pattern-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(139, 92, 246, 0.1);
+  border-radius: 50%;
+  animation: float-pattern 18s ease-in-out infinite;
+}
+
+.pattern-circle:nth-child(4) {
+  top: 30%;
+  right: 30%;
+  animation-duration: 15s;
+  animation-delay: 1s;
+}
+
+.pattern-circle:nth-child(5) {
+  bottom: 25%;
+  right: 5%;
+  animation-duration: 20s;
+  animation-delay: 3s;
+}
+
+@keyframes float-pattern {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  25% {
+    transform: translate(20px, -20px) rotate(90deg);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translate(40px, 0) rotate(180deg);
+    opacity: 0.4;
+  }
+
+  75% {
+    transform: translate(20px, 20px) rotate(270deg);
+    opacity: 0.5;
+  }
+}
+
+/* Sections removed for cleaner table focus */
+.page-header,
+.divider-line {
+  display: none;
+}
+
+/* ===== TABLE CONTAINER ===== */
+.table-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s var(--ease-smooth) 0.3s backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 0;
+  background: white;
+  padding: 0;
+}
+
+/* ===== TABLE STYLING ===== */
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.modern-table:hover {
+  box-shadow: 0 15px 50px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== TABLE CAPTION ===== */
+
+
+/* ===== TABLE HEADER ===== */
+.thead-gradient {
+  background: var(--gradient-header);
+  color: white;
+  position: relative;
+}
+
+.thead-gradient::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+}
+
+.thead-gradient th {
+  padding: var(--space-md) var(--space-md) var(--space-sm) var(--space-md);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s var(--ease-smooth);
+  position: relative;
+  vertical-align: bottom;
+}
+
+.thead-gradient th:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Row shading */
+.th-break {
+  background: var(--gradient-special);
+}
+
+/* ===== TABLE BODY ===== */
+.tbody-interactive tr {
+  transition: all 0.3s var(--ease-smooth);
+  position: relative;
+}
+
+.tbody-interactive tr::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tbody-interactive tr:hover::before {
+  opacity: 1;
+}
+
+.tbody-interactive tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.tbody-interactive tr:hover {
+  background: #dbeafe;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+/* ===== TABLE CELLS ===== */
+td,
+th {
+  padding: var(--space-sm);
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.day-cell {
+  background: #eff6ff;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.05rem;
+  text-align: left;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+}
+
+.weekend-cell {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+}
+
+.activity-cell {
+  font-weight: 500;
+  color: #334155;
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-cell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.activity-cell:hover::before {
+  left: 100%;
+}
+
+.activity-cell:hover {
+  background: #bfdbfe;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+  box-shadow: inset 0 0 15px rgba(37, 99, 235, 0.2);
+}
+
+.merged-cell {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+  font-weight: 600;
+}
+
+.special-cell {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.15));
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.highlight-cell {
+  background: linear-gradient(135deg, #fef3c7, #fde047);
+  font-weight: 700;
+  color: #92400e;
+  position: relative;
+}
+
+.highlight-cell::after {
+  content: "⭐";
+  position: absolute;
+  right: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(-50%) scale(1.3) rotate(180deg);
+  }
+}
+
+.lunch-cell {
+  background: #dcfce7;
+  font-weight: 700;
+  color: #166534;
+  vertical-align: middle;
+}
+
+.sunday-cell {
+  font-size: 1.1rem;
+  padding: var(--space-xl);
+}
+
+.sunday-icon {
+  font-size: 1.5rem;
+  animation: rotate 4s linear infinite;
+}
+
+/* ===== TABLE FOOTER ===== */
+.tfoot-highlight {
+  background: linear-gradient(135deg, #f1f5f9, #e0e7ff);
+  font-style: italic;
+}
+
+.footer-cell {
+  padding: var(--space-lg);
+  color: #475569;
+  font-weight: 600;
+}
+
+.footer-note {
+  font-size: 1.05rem;
+}
+
+/* ===== PAGE FOOTER ===== */
+.page-footer {
+  margin-top: var(--space-xl);
+  padding: var(--space-xl);
+  animation: fadeIn 1s var(--ease-smooth);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.footer-text {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.footer-sparkle {
+  display: inline-block;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+  .table-wrapper {
+    overflow-x: scroll;
+  }
+
+  .modern-table {
+    min-width: 900px;
+  }
+
+  .day-cell {
+    position: sticky;
+    left: 0;
+    background: #eff6ff;
+    z-index: 10;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: var(--space-md);
+  }
+
+  .page-title {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .title-emoji {
+    font-size: 2.5rem;
+  }
+
+  .subtitle-badge {
+    font-size: 0.875rem;
+    padding: var(--space-xs) var(--space-md);
+  }
+
+  td,
+  th {
+    padding: var(--space-sm);
+    font-size: 0.875rem;
+  }
+
+  .thead-gradient th {
+    padding: var(--space-md);
+    font-size: 0.85rem;
+  }
+
+  .table-caption {
+    font-size: 1.25rem;
+    padding: var(--space-md);
+  }
+
+  .caption-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  td,
+  th {
+    padding: var(--space-xs);
+    font-size: 0.75rem;
+  }
+
+  .lunch-icon {
+    font-size: 1.5rem;
+  }
+
+  .sunday-cell {
+    font-size: 0.95rem;
+    padding: var(--space-md);
+  }
+}
+
+/* ===== ACCESSIBILITY: REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+
+  .bg-pattern,
+  .page-footer {
+    display: none;
+  }
+
+  .modern-table {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  body {
+    background: white;
+  }
+
+  .tbody-interactive tr:hover {
+    transform: none;
+  }
+}
+
+/* ===== FOCUS STYLES (Accessibility) ===== */
+.modern-table th:focus,
+.modern-table td:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 100;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  /* ✅ FIX 1: Removes extra empty spacing */
+  table-layout: fixed;
+
+  background: white;
+  overflow: hidden;
+}
+
+/* ✅ FIX 2: Control Day column width */
+.modern-table th:first-child {
+  width: 140px;
+  white-space: nowrap;
+}
+
+/* ✅ Day column styling works now */
+.day-cell {
+  background: #eff6ff;
+  font-weight: 700;
+  color: #2563eb;
+}
