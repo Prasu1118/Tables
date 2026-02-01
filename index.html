@@ -1,145 +1,156 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Weekly Study Timetable - Advanced table showcasing student learning schedule" />
-  <meta name="keywords" content="timetable, schedule, student, weekly planner, academic" />
-  <title>Advanced Weekly Study Timetable</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Time Table | Weekly Grid</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-  <!-- Animated Background -->
-  <div class="bg-pattern" aria-hidden="true">
-    <div class="pattern-square"></div>
-    <div class="pattern-square"></div>
-    <div class="pattern-square"></div>
-    <div class="pattern-circle"></div>
-    <div class="pattern-circle"></div>
-  </div>
+  <div class="cyber-grid"></div>
+  <div class="neon-orb orb-1"></div>
+  <div class="neon-orb orb-2"></div>
 
-  <!-- Main Content -->
-  <main class="table-container">
-    <div class="table-wrapper" role="region" aria-label="Weekly  study schedule table">
-      <table class="modern-table" aria-describedby="table-caption">
-        <!-- Table Header -->
-        <thead class="thead-gradient">
-          <tr>
-            <th rowspan="2" scope="col" class="th-fixed">Day</th>
-            <th rowspan="2" scope="col" class="th-fixed">Day</th>
-            <th colspan="3" scope="colgroup" class="th-merged">Morning Session</th>
-            <th rowspan="2" scope="col" class="th-break">Lunch</th>
-            <th colspan="2" scope="colgroup" class="th-merged">Afternoon Session</th>
-            <th rowspan="2" scope="col" class="th-fixed">Evening Task</th>
-          </tr>
+  <main class="dashboard">
+    <header class="cyber-header">
+      <h1 class="neon-text" data-text="CAREER TIME TABLE">CAREER TIME TABLE</h1>
+      <p class="cyber-subtitle">WEEKLY GROWTH MATRIX | FULL-STACK JAVA</p>
+    </header>
 
-          <tr>
-            <th scope="col">9-10 AM</th>
-            <th scope="col">10-11 AM</th>
-            <th scope="col">11-12 PM</th>
-            <th scope="col">1-2 PM</th>
-            <th scope="col">2-4 PM</th>
-          </tr>
-        </thead>
+    <section class="cyber-card">
+      <div class="corner top-left"></div>
+      <div class="corner top-right"></div>
+      <div class="corner bottom-left"></div>
+      <div class="corner bottom-right"></div>
 
-        <!-- Table Body -->
-        <tbody class="tbody-interactive">
-          <tr>
-            <th scope="row" class="day-cell">Monday</th>
-            <td class="activity-cell">MySQL</td>
-            <td class="activity-cell">Java</td>
-            <td class="activity-cell">Soft Skills</td>
-            <td rowspan="5" class="lunch-cell">
-              <div class="lunch-content">
-                <span class="lunch-icon">🍱</span>
-                <strong>Break</strong>
-              </div>
-            </td>
-            <td class="activity-cell">Mock Tests</td>
-            <td class="activity-cell">Git Practice</td>
-            <td class="activity-cell">Revision</td>
-          </tr>
-
-          <tr>
-            <th scope="row" class="day-cell">Tuesday</th>
-            <td colspan="2" class="activity-cell merged-cell">Project Class</td>
-            <td class="activity-cell">Programming</td>
-            <td class="activity-cell">CSS</td>
-            <td class="activity-cell">Portfolio Work</td>
-            <td class="activity-cell">Problem Solving</td>
-          </tr>
-
-          <tr>
-            <th scope="row" class="day-cell">Wednesday</th>
-            <td class="activity-cell">HTML</td>
-            <td class="activity-cell">Python</td>
-            <td class="activity-cell">DSA</td>
-            <td rowspan="2" class="activity-cell special-cell">Frontend Project</td>
-            <td class="activity-cell">React Practice</td>
-            <td class="activity-cell">Mini Project</td>
-          </tr>
-
-          <tr>
-            <th scope="row" class="day-cell">Thursday</th>
-            <td class="activity-cell">Java</td>
-            <td colspan="2" class="activity-cell merged-cell">React.js</td>
-            <td class="activity-cell">API Integration</td>
-            <td class="activity-cell">Assignments</td>
-          </tr>
-
-          <tr>
-            <th scope="row" class="day-cell">Friday</th>
-            <td class="activity-cell">Programming</td>
-            <td class="activity-cell">Java</td>
-            <td class="activity-cell">DSA</td>
-            <td class="activity-cell">JavaScript</td>
-            <td class="activity-cell">Interview Prep</td>
-            <td class="activity-cell highlight-cell">Optimal Activity</td>
-          </tr>
-
-          <tr>
-            <th scope="row" class="day-cell weekend-cell">Saturday</th>
-            <td colspan="3" class="activity-cell special-cell merged-cell">
-              <strong>Hackathon / Practice Session</strong>
-            </td>
-            <td colspan="2" class="activity-cell merged-cell">Full Stack Development</td>
-            <td class="activity-cell">Relax + Review</td>
-          </tr>
-
-          <tr>
-            <th scope="row" class="day-cell weekend-cell">Sunday</th>
-            <td colspan="7" class="activity-cell special-cell merged-cell sunday-cell">
-              <span class="sunday-icon">🌟</span>
-              Weekly Planning + Personal Growth + Rest Day
-              <span class="sunday-icon">🌟</span>
-            </td>
-          </tr>
-        </tbody>
-
-        <!-- Table Footer -->
-        <tfoot class="tfoot-highlight">
-          <tr>
-            <td colspan="8" class="footer-cell">
-              <em class="footer-note">
-                💡 Note: Friday 2-4 PM is the Best Slot for Optimal Productivity 🚀
-              </em>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
+      <div class="table-container">
+        <table class="futuristic-table grid-view">
+          <caption>CORE KNOWLEDGE TRANSFUSION SCHEDULE</caption>
+          <thead>
+            <tr>
+              <th>TIME / SUBJECT</th>
+              <th>MON</th>
+              <th>TUE</th>
+              <th>WED</th>
+              <th>THU</th>
+              <th>FRI</th>
+              <th>SAT</th>
+              <th class="sunday-head">SUN (SPECIAL)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-label">08:00 AM - 09:00 AM<br><span>JAVA</span></td>
+              <td>Basics</td>
+              <td>OOPs</td>
+              <td>Inherit</td>
+              <td>Poly</td>
+              <td>Exception</td>
+              <td>Collect</td>
+              <td rowspan="4" class="sunday-cell">
+                <div class="sunday-title">PORTFOLIO DAY</div>
+                <div class="sunday-content">Building Projects &<br>Github Profile</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="time-label">09:00 AM - 10:00 AM<br><span>HTML & CSS</span></td>
+              <td>Tags</td>
+              <td>Select</td>
+              <td>Flexbox</td>
+              <td>Grid</td>
+              <td>Forms</td>
+              <td>Resp</td>
+            </tr>
+            <tr>
+              <td class="time-label">10:00 AM - 11:00 AM<br><span>JS & REACT JS</span></td>
+              <td>Vars</td>
+              <td>Funcs</td>
+              <td>Arrow</td>
+              <td>Basics</td>
+              <td>Hooks</td>
+              <td>Props</td>
+            </tr>
+            <tr>
+              <td class="time-label">11:00 AM - 12:00 PM<br><span>MYSQL</span></td>
+              <td>Select</td>
+              <td>Where</td>
+              <td>Groups</td>
+              <td>Joins</td>
+              <td>Keys</td>
+              <td>Foreign</td>
+            </tr>
+            <tr class="break-row">
+              <td colspan="8" class="break-animation-cell-full">
+                <div class="break-text">12:00 PM - 01:00 PM | SYSTEM 🍎 RECHARGE & BREAK ☕</div>
+                <!-- <div class="icons-container">
+                  <div class="moving-icon">☕</div>
+                  <div class="moving-icon">🍕</div>
+                  <div class="moving-icon">🍎</div>
+                  <div class="moving-icon">🍔</div>
+                  <div class="moving-icon">🔋</div>
+                  <div class="moving-icon">🥪</div>
+                  <div class="moving-icon">🌮</div>
+                  <div class="moving-icon">🥤</div>
+                </div> -->
+              </td>
+            </tr>
+            <tr>
+              <td class="time-label">01:00 PM - 02:00 PM<br><span>APTITUDE</span></td>
+              <td>Number</td>
+              <td>HCF/LCM</td>
+              <td>Avg</td>
+              <td>Perc</td>
+              <td>P & L</td>
+              <td>Int</td>
+              <td rowspan="4" class="sunday-cell">
+                <div class="sunday-title">GRAND RECAP</div>
+                <div class="sunday-content">Mock Interviews &<br>Weekly Test</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="time-label">02:00 PM - 03:00 PM<br><span>NEW AI TOOLS</span></td>
+              <td>GPT</td>
+              <td>Midjourn</td>
+              <td>Claude</td>
+              <td>Copilot</td>
+              <td>Gemini</td>
+              <td>ImageGen</td>
+            </tr>
+            <tr>
+              <td class="time-label">03:00 PM - 04:00 PM<br><span>REVISION</span></td>
+              <td>Java</td>
+              <td>Web</td>
+              <td>React</td>
+              <td>SQL</td>
+              <td>Apt</td>
+              <td>AI</td>
+            </tr>
+            <tr>
+              <td class="time-label">04:00 PM - 05:00 PM<br><span>PRACTICE</span></td>
+              <td>Project</td>
+              <td>Lab</td>
+              <td>Code</td>
+              <td>Deploy</td>
+              <td>Debug</td>
+              <td>Demo</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="8">" Consistency is the key to mastery. "</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
   </main>
-
-  <!-- Footer -->
-  <footer class="page-footer" role="contentinfo">
-    <div class="divider-line"></div>
-    <p class="footer-text">
-      © 2026 Study Timetable. Designed for maximum productivity.
-      <span class="footer-sparkle">✨</span>
-    </p>
-  </footer>
 </body>
 
 </html>
